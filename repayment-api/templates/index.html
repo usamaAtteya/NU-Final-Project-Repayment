@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Miners Model Interface</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+    </head>
+    <body>
+        <div class="container">
+					
+			<header>
+				<h1>Miners Model Client Interface</h1>			
+			</header>
+			
+			<section class="main">
+				<!-- form submission will redirect to /predict page -->
+				<form class="form-2" action="{{ url_for('predict')}}" method="post">
+					<h1>Enter Model Hyperparameters</h1>
+															
+					<p class="float">
+						<label>Average Age of Entry</label>
+						<input type="text" name="AGE_ENTRY" placeholder="AGE_ENTRY">
+					</p>
+					<p class="float">
+						<label>Average SAT</label>
+						<input type="text" name="SAT_AVG_ALL" placeholder="SAT_AVG_ALL">
+					</p>
+					<p class="float">
+						<label>Math SAT Scores</label>
+						<input type="text" name="SATMTMID" placeholder="SATMTMID">
+					</p>					
+					<p class="float">
+						<label>Number of Undergraduates</label>
+						<input type="text" name="UGDS" placeholder="UGDS">
+					</p>
+					<p class="float">
+						<label>Number of Non-working Students</label>
+						<input type="text" name="COUNT_NWNE_P10" placeholder="COUNT_NWNE_P10">
+					</p>
+					<p class="float">
+						<label>Number of Working Students</label>
+						<input type="text" name="COUNT_WNE_P10" placeholder="COUNT_WNE_P10">
+					</p>					
+					<p class="float">
+						<label>Mean Earnings of Working Students</label>
+						<input type="text" name="MN_EARN_WNE_P10" placeholder="MN_EARN_WNE_P10">
+					</p>
+					<p class="float">
+						<label>Median Earnings of Working Students</label>
+						<input type="text" name="MD_EARN_WNE_P10" placeholder="MD_EARN_WNE_P10">
+					</p>				
+																					
+					<p class="float">
+						<label>Net-tuition Revenue per FTE Student</label>
+						<input type="text" name="TUITFTE" placeholder="TUITFTE">
+					</p>
+					<p class="float">
+						<label>Instructional expenditures per FTE student</label>
+						<input type="text" name="INEXPFTE" placeholder="INEXPFTE">
+					</p>															
+					<p class="float">
+						<label>In-state tuition and fees</label>
+						<input type="text" name="TUITIONFEE_IN" placeholder="TUITIONFEE_IN">
+					</p>	
+					<p class="float">
+						<label>Out-of-state tuition and fees</label>
+						<input type="text" name="TUITIONFEE_OUT" placeholder="TUITIONFEE_OUT">
+					</p>				
+					<p class="float">
+						<label>Program-Year tuition and fees</label>
+						<input type="text" name="TUITIONFEE_PROG" placeholder="TUITIONFEE_PROG">
+					</p>					
+					<p class="float">
+						<label>Avg Cost of Academic-Year Attendance</label>
+						<input type="text" name="COSTT4_A" placeholder="COSTT4_A">
+					</p>
+					<p class="float">
+						<label>Avg Cost of Program-Year Attendance</label>
+						<input type="text" name="COSTT4_P" placeholder="COSTT4_P">
+					</p>
+					<p class="float">
+						<label>Campus Admission Rate</label>
+						<input type="number" min="0" max="1" step="0.01" name="ADM_RATE" placeholder="ADM_RATE">
+					</p>
+					<p class="float">
+						<label>Institution Admission Rate</label>
+						<input type="number" min="0" max="1" step="0.01" name="ADM_RATE_ALL" placeholder="ADM_RATE_ALL">
+					</p>
+					<p class="float">
+						<label>Number of White Undergraduates</label>
+						<input type="number" min="0" max="1" step="0.01" name="UGDS_WHITE" placeholder="UGDS_WHITE">
+					</p>
+					<p class="float">
+						<label>Number of Black Undergraduates</label>
+						<input type="number" min="0" max="1" step="0.01" name="UGDS_BLACK" placeholder="UGDS_BLACK">
+					</p>					
+					<p class="float">
+						<label>Number of Hispanic Undergraduates</label>
+						<input type="number" min="0" max="1" step="0.01" name="UGDS_HISP" placeholder="UGDS_HISP">
+					</p>					
+					<p class="float">
+						<label>Number of Asian Undergraduates</label>
+						<input type="number" min="0" max="1" step="0.01" name="UGDS_ASIAN" placeholder="UGDS_ASIAN">
+					</p>					
+					<p class="float">
+						<label>Number of American Undergraduates</label>
+						<input type="number" min="0" max="1" step="0.01" name="UGDS_AIAN" placeholder="UGDS_AIAN">
+					</p>
+					<p class="float">
+						<label>Number of Native Hawaiian Undergraduates</label>
+						<input type="number" min="0" max="1" step="0.01" name="UGDS_NHPI" placeholder="UGDS_NHPI">
+					</p>
+					<p class="float">
+						<label>Number of Undergraduates with 2/More Races</label>
+						<input type="number" min="0" max="1" step="0.01" name="UGDS_2MOR" placeholder="UGDS_2MOR">
+					</p>
+					<p class="float">
+						<label>Number of non-resident Undergraduates</label>
+						<input type="number" min="0" max="1" step="0.01" name="UGDS_NRA" placeholder="UGDS_NRA">
+					</p>
+					<p class="float">
+						<label>Number of Undergraduates with Unknown Race</label>
+						<input type="number" min="0" max="1" step="0.01" name="UGDS_UNKN" placeholder="UGDS_UNKN">
+					</p>						
+					<p class="float">
+						<label>% Undergraduates Receiving Federal Loans</label>
+						<input type="number" min="0" max="1" step="0.01" name="PCTFLOAN" placeholder="PCTFLOAN">
+					</p>
+					<p class="float">
+						<label>% Undergraduates Receiving Pell Grant</label>
+						<input type="number" min="0" max="1" step="0.01" name="PCTPELL" placeholder="PCTPELL">
+					</p>						
+					<p class="float">
+						<label>% Part-time Undergraduates</label>
+						<input type="number" min="0" max="1" step="0.01" name="PPTUG_EF" placeholder="PPTUG_EF">
+					</p>				
+					<p class="float">
+						<label>Completion Rate within 2-years</label>
+						<input type="number" min="0" max="1" step="0.01" name="COMP_ORIG_YR2_RT" placeholder="COMP_ORIG_YR2_RT">
+					</p>
+					<p class="float">
+						<label>Completion Rate within 3-years</label>
+						<input type="number" min="0" max="1" step="0.01" name="COMP_ORIG_YR3_RT" placeholder="COMP_ORIG_YR3_RT">
+					</p>
+					<p class="float">
+						<label>Completion Rate within 4-years</label>
+						<input type="number" min="0" max="1" step="0.01" name="COMP_ORIG_YR4_RT" placeholder="COMP_ORIG_YR4_RT">
+					</p>					
+					<p class="float">
+						<label>Completion Rate within 3-years with Fedral Loans</label>
+						<input type="number" min="0" max="1" step="0.01" name="LOAN_COMP_ORIG_YR3_RT" placeholder="LOAN_COMP_ORIG_YR3_RT">
+					</p>
+					<p class="float">
+						<label>Percent Died within 4-years</label>
+						<input type="number" min="0" max="1" step="0.01" name="DEATH_YR4_RT" placeholder="DEATH_YR4_RT">
+					</p>
+					<p class="float">
+						<label>CONTROL</label>
+						<select name="CONTROL">
+							<option></option>
+						    <option value="1">1 - Public</option>
+						    <option value="2">2 - Private nonprofit</option>
+						    <option value="3">3 - Private for-profit</option>
+						</select>
+					</p>
+					<p class="float">
+						<!-- HIGHDEG -->
+						<label>Degree Type</label>
+						<select name="HIGHDEG">
+							<option></option>
+						    <option value="0">0 - Non-degree granting</option>
+						    <option value="1">1 - Certificate degree</option>
+						    <option value="2">2 - Associate degree</option>
+						    <option value="3">3 - Bachelor's degree</option>
+						    <option value="4">4 - Graduate degree</option>
+						</select>
+					</p>			
+
+					<p class="clearfix">     
+						<input type="submit" name="submit" value="Build Model">
+					</p>
+				</form>​​
+				
+				<P>
+					{{ prediction_text }}
+				</P>
+			</section>
+        </div>
+    </body>
+</html>
