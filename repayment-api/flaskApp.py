@@ -88,4 +88,5 @@ ToBeModified
     return jsonify(output)
 """
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    ext_files=['./final_model/metadata/_SUCCESS','./final_model/metadata/part-00000']
+    app.run(debug=True, port=5000,extra_files =ext_files)
