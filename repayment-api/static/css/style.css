@@ -27,7 +27,7 @@
 .form-2 {
     /* Size and position */
     width: 90%;
-    margin: 60px auto 30px;
+    margin: 40px auto 30px;
     padding: 15px;
     position: relative;
 
@@ -41,6 +41,16 @@
         0 0 0 12px rgba(255,255,255,0.4); 
 }
 
+.pred {
+	width: 45%;
+    margin-left: 55px;
+    
+	font-size: 20px;
+    font-weight: bolder;
+    color: #666;
+    text-shadow: 0 2px 0 rgba(255,255,255,0.8);   
+}
+
 .form-2 h1 {
     font-size: 15px;
     font-weight: bold;
@@ -52,10 +62,14 @@
 }
 
 .form-2 .float {
-    width: 50%;
+    width: 47.5%;
     float: left;
     padding-top: 15px;
     border-top: 1px solid rgba(255,255,255,1);
+}
+
+.form-2 .float:nth-child(odd){
+	float: right;
 }
 
 .form-2 .float:first-of-type {
@@ -76,7 +90,7 @@
     font-size: 11px;
 }
 
-.form-2 input[type=number], select
+.form-2 input[type=number], input[type=text], select
 {
     font-family: 'Lato', Calibri, Arial, sans-serif;
     font-size: 13px;
@@ -95,6 +109,7 @@
 }
 
 .form-2 input[type=number]:hover,
+input[type=text]:hover,
 select
 {
     border-color: #CCC;

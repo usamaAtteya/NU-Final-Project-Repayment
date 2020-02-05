@@ -14,6 +14,10 @@
 			</header>
 			
 			<section class="main">
+				<h1 class="pred">
+					{{ prediction_text }}
+				</h1>
+				
 				<!-- form submission will redirect to /predict page -->
 				<form class="form-2" action="{{ url_for('predict')}}" method="post">
 					<h1>Enter Model Hyperparameters</h1>
@@ -180,11 +184,7 @@
 					<p class="clearfix">     
 						<input type="submit" name="submit" value="Build Model">
 					</p>
-				</form>​​
-				
-				<P>
-					{{ prediction_text }}
-				</P>
+				</form>​​								
 			</section>
         </div>
     </body>
