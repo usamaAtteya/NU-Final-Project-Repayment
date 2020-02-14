@@ -1,0 +1,1 @@
+{"class":"org.apache.spark.ml.feature.OneHotEncoderModel","timestamp":1580900824383,"sparkVersion":"2.4.4","uid":"OneHotEncoderEstimator_458d7c571808","paramMap":{"outputCols":["CONTROL_ENCODED","HIGHDEG_ENCODED"],"inputCols":["CONTROL","HIGHDEG"]},"defaultParamMap":{"dropLast":true,"handleInvalid":"error"}}

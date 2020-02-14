@@ -1,0 +1,24 @@
+---
+config:
+  failure.emails: failure@email.com
+
+nodes:
+  - name: training-script
+    type: command
+    config:
+      command: spark-submit /Users/apple/Documents/GitHub/NU-Project/Submission/data-enginering-part/engineering-app.py
+    dependsOn:
+      - sqoop-ingestion-script
+
+  - name: sqoop-ingestion-script
+    type: command
+    config:
+      command: sqoop import --connect jdbc:mysql://localhost:3306/reapyment --driver com.mysql.jdbc.Driver --username root --password P@ssw0rd --table scorecard_data --target-dir /repayment/scorecard.txt --bindir /usr/local/Cellar/sqoop/1.4.6_1/libexec/lib
+    dependsOn:
+      - hdfs-cleaner
+
+  - name: hdfs-cleaner
+    type: command
+    config:
+      command:  hadoop dfs -rmr hdfs:///repayment
+
