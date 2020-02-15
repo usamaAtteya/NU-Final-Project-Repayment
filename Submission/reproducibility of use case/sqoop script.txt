@@ -1,0 +1,3 @@
+sqoop import --connect jdbc:mysql://localhost:3306/reapyment --driver com.mysql.jdbc.Driver --username root --password P@ssw0rd --table scorecard_data --target-dir /repayment/scorecard.txt --bindir /usr/local/Cellar/sqoop/1.4.6_1/libexec/lib
+
+

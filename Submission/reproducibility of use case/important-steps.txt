@@ -1,0 +1,14 @@
+This file is helpful only after following all steps in how-to-reproduce-our-work.pdf.
+
+It is a shortcut to run the use only after configuring everything correctly following how-to-reproduce-our-work.pdf file.
+
+
+Steps => 
+1- run hdfs => in cmd type hstart
+2- run Azkaban => goto Azkaban-solo-server/build/install/azkaban-solo-server then in cmd type bin/start-solo.sh
+3-from web browser http://127.0.0.1/8081
+4- run flask server => goto flask project path and in cmd type source bin/activate then run the python file that contains flask app entry point from cmd
+5-from web browser http://127.0.0.1/5050
+
+
+

@@ -35,8 +35,12 @@ if __name__ == "__main__":
     .getOrCreate()
     sc = spark.sparkContext
     web_app_model_path = "/Users/apple/Desktop/flask_projects/repayment-api/final_model"
-    data_path = "/Users/apple/Desktop/BD2/bd2/data/CollegeScorecard_Raw_Data/MERGED2012_13_PP.csv"
-    scorecard_data =  spark.read.format("csv").option("header", "true").option("inferSchema", "true").load(data_path)
+    data_path = "hdfs://localhost:9000/repayment/scorecard.txt"
+    
+    db_cols = ["ID", "INSTNM", "HIGHDEG", "CONTROL", "ADM_RATE", "ADM_RATE_ALL", "SATMTMID", "ACTCMMID", "ACTENMID", "ACTMTMID", "ACTWRMID", "SAT_AVG", "SAT_AVG_ALL", "UGDS", "UGDS_WHITE", "UGDS_BLACK", "UGDS_HISP", "UGDS_ASIAN", "UGDS_AIAN", "UGDS_NHPI", "UGDS_2MOR", "UGDS_NRA", "UGDS_UNKN", "PPTUG_EF", "COSTT4_A", "COSTT4_P", "TUITIONFEE_IN", "TUITIONFEE_OUT", "TUITIONFEE_PROG", "TUITFTE", "INEXPFTE", "AVGFACSAL", "PCTPELL", "PCTFLOAN", "COMP_ORIG_YR2_RT", "DEATH_YR3_RT", "COMP_ORIG_YR3_RT", "LOAN_DEATH_YR3_RT", "LOAN_COMP_ORIG_YR3_RT", "DEATH_YR4_RT", "COMP_ORIG_YR4_RT", "COMPL_RPY_1YR_RT", "AGE_ENTRY", "COUNT_NWNE_P10", "COUNT_WNE_P10", "MN_EARN_WNE_P10", "MD_EARN_WNE_P10", "YEARS"]
+    scorecard_data_rdd =  spark.read.format("csv").option("header", "true").option("inferSchema", "true").load(data_path)
+    scorecard_data = scorecard_data_rdd.toDF(*db_cols)
+
 
     features =["CONTROL","ADM_RATE","ADM_RATE_ALL","SAT_AVG_ALL","SATMTMID","UGDS","HIGHDEG",  "TUITFTE", 
        "COSTT4_A", "PCTFLOAN","COMP_ORIG_YR2_RT", "UGDS_WHITE","UGDS_BLACK","UGDS_HISP","UGDS_ASIAN","UGDS_AIAN","UGDS_NHPI","UGDS_2MOR","UGDS_NRA","UGDS_UNKN","PPTUG_EF","COSTT4_P","TUITIONFEE_IN","TUITIONFEE_OUT","TUITIONFEE_PROG","INEXPFTE","PCTPELL","COMP_ORIG_YR3_RT","LOAN_COMP_ORIG_YR3_RT","DEATH_YR4_RT","COMP_ORIG_YR4_RT","AGE_ENTRY","COUNT_NWNE_P10","COUNT_WNE_P10","MN_EARN_WNE_P10","MD_EARN_WNE_P10","COMPL_RPY_1YR_RT"]
